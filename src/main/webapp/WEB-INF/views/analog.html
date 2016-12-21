@@ -1,0 +1,857 @@
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!-- TODO 兼容IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- TODO 兼容高速浏览模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- TODO 移动设计优先(响应式) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AnalogSystems</title>
+    <!-- TODO Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--
+       TODO IE8版本之前(6,7,8)不支持HTML5的新标签和CSS3的媒体查询
+       TODO * html5shiv.min.js
+       TODO   专门兼容IE6/7/8版本的HTML5新标签
+       TODO * respond.min.js
+       TODO   专门兼容IE6/7/8版本的CSS3提供的媒体查询
+     -->
+    <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.min.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/analog.css"/>
+    <link rel="stylesheet" href="css/history.css"/>
+    <link rel="stylesheet" href="css/analog-1.css"/>
+</head>
+<body id="body">
+<nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="navbar-header col-xs-12 ">
+        <!-- TODO 添加页面标题或LOGO图片 -->
+        <a class="navbar-brand" href="#">
+            <i class="logo"></i>
+            <i class="visible-xs min-logo"></i>
+        </a>
+        <!-- 移动设备显示-->
+        <button class="menu-button visible-xs navbar-toggle collapsed" id="showLeftPush">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!--pc端显示-->
+        <button type="button" class="pc-button"></button>
+        <!--语言图标 -->
+        <div class="btn-group btn-gly dropdown-menu-left">
+            <button type="button" id="btn-language" class="btn btn-default  dropdown-toggle" data-toggle="dropdown" >
+                <span class="glyphicon glyphicon-globe"></span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">English</a></li>
+                <li class="disabled"><a href="#">中文</a></li>
+            </ul>
+        </div>
+        <!--用户个人中心   下拉菜单-->
+        <div class="btn-group btn-gly">
+            <button type="button" id="btn-user" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-user"></span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">个人中心</a></li>
+                <li class="divider"></li>
+                <li class="logout"><a href="#">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--侧边栏 菜单-->
+<div class="hidden_nav">
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left " id="cbp-spmenu-s1">
+    <!-- 菜单列表-->
+    <ul class="list-none nav-a phone-menu" >
+        <li data-toggle="tab" >
+            <a href="#" class="addActive">设备概览</a>
+        </li>
+        <li data-toggle="tab" >
+            <a href="#realTime">实时监控</a>
+        </li>
+        <li data-toggle="tab">
+            <a href="#history">历史数据</a>
+        </li>
+        <li data-toggle="tab" class="blur data-analysis">
+            <a href="#">运行记录</a>
+        </li>
+        <li data-toggle="tab" class="record blur chart_show">
+            <a href="#analyze">数据分析</a>
+        </li>
+        <li data-toggle="tab" class="record blur">
+            <a href="#operation">维护记录</a>
+        </li>
+        <li data-toggle="tab" class="record blur">
+            <a href="#malfunction">报警记录</a>
+        </li>
+        <li data-toggle="tab">
+            <a href="#system">系统介绍</a>
+        </li>
+    </ul>
+</nav>
+</div>
+<div id="main col-md-12 col-sm-12">
+    <!--导航条-->
+    <div class=" right-nav  " id="nav-pc">
+        <ul class="nav nav-pills nav-stacked nav-ul nav-a" id="mytab">
+            <li data-toggle="tab active">
+                <a href="#" class="addActive"><span class="span_gly glyphicon glyphicon-cloud"></span>设备概览</a>
+            </li>
+            <li data-toggle="tab ">
+                <a href="#realTime"><span class="span_gly glyphicon glyphicon-dashboard"></span>实时监控</a>
+            </li>
+            <li data-toggle="tab">
+                <a href="#history"><span class="span_gly glyphicon glyphicon-calendar"></span>历史数据</a>
+            </li>
+            <li data-toggle="tab" class="blur data-analysis">
+                <a href="#"><span class="span_gly glyphicon glyphicon-list-alt"></span>运行记录</a>
+            </li>
+            <li data-toggle="tab" class="record blur chart_show analyze-li-active">
+                <a href="#analyze">数据分析</a>
+            </li>
+            <li data-toggle="tab" class="record blur">
+                <a href="#operation">维护记录</a>
+            </li>
+            <li data-toggle="tab" class="record blur">
+                <a href="#malfunction">报警记录</a>
+            </li>
+            <li data-toggle="tab">
+                <a href="#system"><span class="span_gly glyphicon glyphicon-info-sign"></span>系统介绍</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div id="facility" class="active main-content col-md-12 col-sm-12 tab-pane ">
+            <!--地图 -->
+            <div class="col-md-6 col-sm-12 ">
+                <div class="panel panel-success">
+                    <div class="panel-heading">系统位置</div>
+                    <div class="panel-body padding-none">
+                        <div id="map" class="col-md-12 col-sm-12 chian-map">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--地区图表    上海-->
+            <div class="col-md-6 col-sm-12 ">
+                <div class="panel panel-success">
+                    <div class="panel-heading">上海压缩机组</div>
+                    <div class="panel-body bgColor panel-body-bgColor">
+                        <!--排气压力-->
+                        <div class="row _dispose dispose-bgColor">
+                            <div class="col-md-6 col-sm-6 col-xs-6" >
+                                <!--点击模态框-->
+                                <a data-toggle="modal" href="#myModal-2-mg">
+                                    <div id="container-2-mg" class="img-responsive circle-chart" ></div>
+                                </a>
+                            </div>
+                            <!--模态框 MG_2_1 -->
+                            <div class="modal fade" id="myModal-2-mg" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>排气压力</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-2-mg" class="img-responsive modal-chart"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 排气温度-->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a data-toggle="modal" href="#myModal-2-m">
+                                    <div  id="container-2-m" class="img-responsive circle-chart"></div>
+                                </a>
+                            </div>
+                            <!--排气温度模态框-->
+                            <!--模态框 M_2_1 -->
+                            <div class="modal fade" id="myModal-2-m" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>排气温度</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-2-m" class="img-responsive modal-chart"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--吸气 压力 -->
+                        <div class="row _dispose  dispose-bgColor">
+                            <div class="col-md-6 col-sm-6 col-xs-6 " >
+                                <!--点击模态框-->
+                                <a data-toggle="modal" href="#myModal-1-mg"><div id="container-1-mg" class="img-responsive circle-chart"></div></a>
+                            </div>
+                            <!--模态框 MG_1_1 -->
+                            <div class="modal fade" id="myModal-1-mg" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>吸气压力</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-1-mg" class="img-responsive modal-chart" ></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 吸气温度-->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a data-toggle="modal" href="#myModal-1-m"><div  id="container-1-m" class="img-responsive circle-chart"></div></a>
+                            </div>
+                            <!--吸气温度模态框-->
+                            <!--模态框 M_1_1 -->
+                            <div class="modal fade" id="myModal-1-m" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>吸气温度</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-1-m" class="img-responsive modal-chart" ></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--流量  -->
+                        <div class="row _dispose bgColor-bottom">
+                            <div class="col-md-6 col-sm-6 col-xs-6" >
+                                <!--点击模态框-->
+                                <a data-toggle="modal" href="#myModal-L-1">
+                                    <div id="container-L-1" class="img-responsive circle-chart" ></div>
+                                </a>
+                            </div>
+                            <!--模态框 MG_L_1 -->
+                            <div class="modal fade" id="myModal-L-1" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>润滑油流量</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-L-1" class="img-responsive modal-chart"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 振动 mm-->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+
+                                    <div  id="container-mm-1" class="img-responsive circle-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--地区图表   武汉-->
+            <div class="col-md-6 col-sm-12 ">
+                <div class="panel panel-success">
+                    <div class="panel-heading">武汉压缩机组</div>
+                    <div class="panel-body bgColor panel-body-bgColor">
+                        <!--排气压力-->
+                        <div class="row _dispose dispose-bgColor">
+                            <div class="col-md-6 col-sm-6 col-xs-6" >
+                                <!--点击模态框-->
+                                <a data-toggle="modal" href="#myModal-4-mg">
+                                    <div id="container-4-mg" class="img-responsive circle-chart"></div>
+                                </a>
+                            </div>
+                            <!--模态框 MG_4_1 -->
+                            <div class="modal fade" id="myModal-4-mg" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>排气压力</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-4-mg" class="img-responsive modal-chart"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 排气温度-->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a data-toggle="modal" href="#myModal-4-m">
+                                    <div  id="container-4-m" class="img-responsive circle-chart" ></div>
+                                </a>
+                            </div>
+                            <!--温度模态框-->
+                            <!--模态框 M_4_1 -->
+                            <div class="modal fade" id="myModal-4-m" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>排气温度</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-4-m" class="img-responsive modal-chart" ></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--吸气压力-->
+                        <div class="row _dispose dispose-bgColor">
+                            <div class="col-md-6 col-sm-6 col-xs-6" >
+                                <!--点击模态框-->
+                                <a data-toggle="modal" href="#myModal-3-mg">
+                                    <div id="container-3-mg" class="img-responsive circle-chart" ></div>
+                                </a>
+                            </div>
+                            <!--模态框 MG_3_1 -->
+                            <div class="modal fade" id="myModal-3-mg" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>吸气压力</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-3-mg" class="img-responsive modal-chart"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 吸气温度-->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a data-toggle="modal" href="#myModal-3-m">
+                                    <div  id="container-3-m" class="img-responsive circle-chart"></div>
+                                </a>
+                            </div>
+                            <!--温度模态框-->
+                            <!--模态框 M_3_1 -->
+                            <div class="modal fade" id="myModal-3-m" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>吸气温度</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-3-m" class="img-responsive modal-chart"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--流量  -->
+                        <div class="row _dispose bgColor-bottom">
+                            <div class="col-md-6 col-sm-6 col-xs-6" >
+                                <!--点击模态框-->
+                                <a data-toggle="modal" href="#myModal-L-2">
+                                    <div id="container-L-2" class="img-responsive circle-chart" ></div>
+                                </a>
+                            </div>
+                            <!--模态框 MG_L_2 -->
+                            <div class="modal fade" id="myModal-L-2" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>润滑油流量</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-L-2" class="img-responsive modal-chart"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 震动 mm-->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+
+                                    <div  id="container-mm-2" class="img-responsive circle-chart"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--地区图表  沈阳-->
+            <div class="col-md-6 col-sm-12 ">
+                <div class="panel panel-success">
+                    <div class="panel-heading">沈阳压缩机组</div>
+                    <div class="panel-body bgColor panel-body-bgColor">
+                        <!--排气压力-->
+                        <div class="row _dispose dispose-bgColor">
+                            <div class="col-md-6 col-sm-6 col-xs-6" >
+                                <!--点击模态框-->
+                                <a data-toggle="modal" href="#myModal-6-mg">
+                                    <div id="container-6-mg" class="img-responsive circle-chart" ></div>
+                                </a>
+                            </div>
+                            <!--模态框 MG_5_1 -->
+                            <div class="modal fade" id="myModal-6-mg" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>排气压力</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-6-mg" class="img-responsive modal-chart"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 排气温度-->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a data-toggle="modal" href="#myModal-6-m">
+                                    <div  id="container-6-m" class="img-responsive circle-chart"></div>
+                                </a>
+                            </div>
+                            <!--温度模态框-->
+                            <!--模态框 M_6_1 -->
+                            <div class="modal fade" id="myModal-6-m" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>排气温度</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-6-m" class="img-responsive modal-chart"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--吸气压力-->
+                        <div class="row _dispose dispose-bgColor">
+                            <div class="col-md-6 col-sm-6 col-xs-6" >
+                                <!--点击模态框-->
+                                <a data-toggle="modal" href="#myModal-5-mg">
+                                    <div id="container-5-mg" class="img-responsive circle-chart"></div>
+                                </a>
+                            </div>
+                            <!--模态框 MG_5_1 -->
+                            <div class="modal fade" id="myModal-5-mg" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>吸气压力</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-5-mg" class="img-responsive modal-chart" ></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 吸气温度-->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a data-toggle="modal" href="#myModal-5-m">
+                                    <div  id="container-5-m" class="img-responsive circle-chart" ></div>
+                                </a>
+                            </div>
+                            <!--温度模态框-->
+                            <!--模态框 M_5_1 -->
+                            <div class="modal fade" id="myModal-5-m" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>吸气温度</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-5-m" class="img-responsive modal-chart"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--流量  -->
+                        <div class="row _dispose bgColor-bottom">
+                            <div class="col-md-6 col-sm-6 col-xs-6" >
+                                <!--点击模态框-->
+                                <a data-toggle="modal" href="#myModal-L-3">
+                                    <div id="container-L-3" class="img-responsive circle-chart" ></div>
+                                </a>
+                            </div>
+                            <!--模态框 MG_L_3 -->
+                            <div class="modal fade" id="myModal-L-3" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4>润滑油流量</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modal-L-3" class="img-responsive modal-chart"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 震动 mm-->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div  id="container-mm-3" class="img-responsive circle-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="realTime" class="main-content col-md-12 col-sm-12 col-xs-12 tab-pane">
+            <div class="col-md-12 col-sm-12 col-xs-12 padding-none">
+                <div class=" col-md-6 col-sm-12 col-xs-12 col-lg-6">
+                    <div class="panel panel-success">
+                    <div class="panel-heading compressor-position sketchMap">运行示意图</div>
+                    <div class="panel-body sketchMap padding-none">
+                        <!-- 压缩机-->
+                        <div class=" container-div circulation show">
+                            <div class="circulation_table" id="myCharts">
+                                <div class="cir_div">
+                                    <h5 class="cir_h5"><span class="span_text_1">排气压力(MPa)</span>
+                                        <span class="cir_span_1 s1_hm">1.4</span>
+                                    </h5>
+                                </div>
+                                <div class="cir_div">
+                                    <h5 class="cir_h5"><span class="span_text_1">排气温度(℃)</span>
+                                        <span class="cir_span_1 s1_fm">1.3</span>
+                                    </h5>
+                                </div>
+                                <div class="cir_div">
+                                    <h5 class="cir_h5"><span class="span_text_1">吸气压力(MPa)</span>
+                                        <span class="cir_span_1 s1_l ">14.1</span>
+                                    </h5>
+                                </div>
+                                <div class="cir_div">
+                                    <h5 class="cir_h5"><span class="span_text_1">吸气温度(℃)</span>
+                                        <span class="cir_span_1 s1_t">25.3</span>
+                                    </h5>
+                                </div>
+                                <div class="cir_div">
+                                    <h5 class="cir_h5"><span class="span_text_1">润滑油流量(ml/min)</span>
+                                        <span class="cir_span_1 s1_lube">82.4</span>
+                                    </h5>
+                                </div>
+                                <div class="cir_div">
+                                    <h5 class="cir_h5"><span class="span_text_1">X轴振动(g)</span>
+                                        <span class="cir_span_1 s1_shake_x">45.3</span>
+                                    </h5>
+                                </div>
+                                <div class="cir_div">
+                                    <h5 class="cir_h5"><span class="span_text_1">Y轴振动(g)</span>
+                                        <span class="cir_span_1 s1_shake_y">28.3</span>
+                                    </h5>
+                                </div>
+                                <div class="cir_div">
+                                    <h5 class="cir_h5"><span class="span_text_1">Z轴振动(g)</span>
+                                        <span class="cir_span_1 s1_shake_z">61.3</span>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class=" col-md-6 col-sm-12 col-xs-12 col-lg-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">视频</div>
+                        <div class="panel-body sketchMap">
+                            <div class="compressor">
+                                <a href="#">
+                                    <img src="img/compressor-2.jpg" class="img-responsive" alt="video"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-6 col-sm-12 col-xs-12 col-lg-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">操作</div>
+                        <div class="panel-body ">
+                           <h5>暂未开通, 敬请等待...</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-6 col-sm-12 col-xs-12 col-lg-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">设备信息</div>
+                        <div class="panel-body sketchMap">
+                            <div class="compressor">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="2">设备信息表</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>设备名称:</td>
+                                        <td>压缩机</td>
+                                    </tr>
+                                    <tr>
+                                        <td>设备编号:</td>
+                                        <td>Cps-107</td>
+                                    </tr>
+                                    <tr>
+                                        <td>控制器:</td>
+                                        <td>普朗特-标准</td>
+                                    </tr>
+                                    <tr>
+                                        <td>采集器序列号:</td>
+                                        <td>2016120103000000AS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>额定功率:</td>
+                                        <td>37.0KW</td>
+                                    </tr>
+                                    <tr>
+                                        <td>额定电压:</td>
+                                        <td>380V</td>
+                                    </tr>
+                                    <tr>
+                                        <td>冷却方式:</td>
+                                        <td>风冷</td>
+                                    </tr>
+                                    <tr>
+                                        <td>生产厂家:</td>
+                                        <td>上海艾络格电子技术有限公司</td>
+                                    </tr>
+                                    <tr>
+                                        <td>功能及应用范围:</td>
+                                        <td>
+                                            <textarea class="text_border" disabled cols="30" rows="4"> 压缩机是一种输送气体和提高气体压力的机器，应用极广化工生产中，压缩机不仅是必不可少的而且是关键的设备。</textarea>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 历史数据-->
+        <div id="history" class=" main-content col-md-12 col-sm-12 col-xs-12 tab-pane  ">
+            <div class="panel panel-success history_container">
+                <div class="panel-heading">历史数据</div>
+                <div class="col-md-12 col-sm-12 col-xs-12 ">
+                    <div class="history-header ">
+                        <!-- 站点选择-->
+                        <div class="dropdown dropdown-site" >
+                            <span class="input_select site">- 请选择站点 -</span>
+                            <ul class="dropdown-site-ul">
+                                <li><a href="#" rel="1" >上海压缩机组</a></li>
+                                <li><a href="#" rel="2" >武汉压缩机组</a></li>
+                                <li><a href="#" rel="3">沈阳压缩机组</a></li>
+                            </ul>
+                        </div>
+                        <!-- 监测名称选择-->
+                        <div class="dropdown dropdown-monitor ">
+                            <span class="input_select monitor ">- 请选择监测量 -</span>
+                            <ul class="dropdown-monitor-ul">
+                                <li><a href="#" rel="ps1">排气压力</a></li>
+                                <li><a href="#" rel="tp1">排气温度</a></li>
+                                <li><a href="#" rel="ps0">吸气压力</a></li>
+                                <li><a href="#" rel="tp0">吸气温度</a></li>
+
+                            </ul>
+                        </div>
+                        <!-- 按钮组 选择日期-->
+                        <div class="btn-time btn-group">
+                            <button type="button" id="btn-1" class="btn btn-default" name="7">前1周</button>
+                            <button type="button" id="btn-2" class="btn btn-default" name="30">前1月</button>
+                            <button type="button" id="btn-3" class="btn btn-default" name="90">前3月</button>
+                        </div>
+                    </div>
+                    <!-- 显示图表的容器-->
+                    <div class="history-content ">
+                        <div id="history-charts"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--运行记录 -->
+        <div id="analyze" class="main-content col-md-12 col-sm-12 col-xs-12 tab-pane ">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="analyze-body">
+                    <div id="analyze-charts" class="img-responsive"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="analyze-body">
+                    <div id="analyze-use" class="img-responsive"></div>
+                </div>
+            </div>
+        </div>
+        <div id="operation" class="main-content col-md-12 col-sm-12 col-xs-12  tab-pane">
+           <div class="record-padding-left operation-body">
+               <h3>日常维护信息</h3>
+               <table id="maintain" class="table table_record table-striped table-hover">
+                   <thead>
+                   <tr>
+                       <th>操作人员</th>
+                       <th>联系电话</th>
+                       <th>维护内容</th>
+                       <th>时间日期</th>
+                   </tr>
+                   </thead>
+               </table>
+               <button type="button" id="btn_1" class="btn btn-info btn-right btn-border-none">点击加载更多</button>
+           </div>
+        </div>
+        <div id="malfunction" class="main-content col-md-12 col-sm-12 col-xs-12 tab-pane">
+            <div class="record-padding-left malfuction-body">
+                <h3>报警信息记录</h3>
+                <table id="message" class="table table_record table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>报警时间</th>
+                        <th>报警来源</th>
+                        <th>报警信息</th>
+                        <th>处理人员</th>
+                    </tr>
+                    </thead>
+                </table>
+                <button type="button" id="btn_2" class="btn btn-info btn-right">点击加载更多</button>
+            </div>
+        </div>
+        <div id="system" class="main-content col-md-12 col-sm-12 col-xs-12 tab-pane">
+            <div class="col-md-12 ">
+                <img src="img/introduce.png" class="img-responsive system-img" alt="introduce-img"/>
+            </div>
+        </div>
+    </div>
+</div>
+<!--页脚-->
+<footer class="footer_text">
+    <div class="container">
+        <div class="text_footer_div_height"><i class="footer_img"></i>艾络格电子技术有限公司  <a href="http://www.miibeian.gov.cn" target="_blank">沪ICP备13002466号-2</a></div>
+    </div>
+</footer>
+
+<!-- TODO 基于 jQuery 实现的 -->
+<script src="js/jquery-1.11.3.min.js"></script>
+<!-- TODO Bootstrap的插件文件 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script src="js/highcharts.js"></script>
+<script src="js/highcharts-more.js"></script>
+<script src="js/solid-gauge.js"></script>
+<script src="js/echart.js"></script>
+<script src="js/history.js"></script>
+<script src="js/myChart.js"></script>
+<script async src="js/modal.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script src="js/echarts-map.js"></script>
+<script src="js/websocket_opr.js"></script>
+
+<script type="text/javascript">
+
+    $('.logout').click(function(){
+        $.post('logout','',function(data){
+            if(data.success){
+                window.location.href="login.html";
+            }else{
+                alert('error: 退出失败!');
+            }
+        })
+    });
+    function handleWebSocketMsg( evt ){
+        console.log(evt);
+        var jsonVal=eval( '(' + evt.data + ')' );
+        if(jsonVal.oid==20110200005){
+                var ps0=[parseFloat((jsonVal.body.mt.vals["ps/0"]).toFixed(2))],
+                    tp0=[parseFloat((jsonVal.body.mt.vals["tp/0"]).toFixed(1))],
+                    ps1=[parseFloat((jsonVal.body.mt.vals["ps/1"]).toFixed(2))],
+                    tp1=[parseFloat((jsonVal.body.mt.vals["tp/1"]).toFixed(1))];
+            MG_1.data=ps0;
+            M_1.data=tp0;
+            chartFun(MG_1,M_1);
+            MG_2.data=ps1;
+            M_2.data=tp1;
+            chartFun(MG_2,M_2);
+
+            MG_1_1.data.push({x:(new Date()).getTime()+28800000,y:jsonVal.body.mt.vals["ps/0"]});
+            modalFun(MG_1_1);
+            M_1_1.data.push({x:(new Date()).getTime()+28800000,y:jsonVal.body.mt.vals["tp/0"]});
+            modalFun(M_1_1);
+            MG_2_1.data.push({x:(new Date()).getTime()+28800000,y:jsonVal.body.mt.vals["ps/1"]});
+            modalFun(MG_2_1);
+            M_2_1.data.push({x:(new Date()).getTime()+28800000,y:jsonVal.body.mt.vals["tp/1"]});
+            modalFun(M_2_1);
+        }
+    }
+
+    createWebSocket( handleWebSocketMsg );
+
+</script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+body {
+    font-family: "SimHei", "SimSun", Arial, sans-serif;
+    padding-top: 50px;
+}
+#dituContent{
+    width:100%;
+    height:500px;
+    border:#ccc solid 1px;
+}
+/*去除点击边框*/
+input,button,select,textarea{
+    outline: none;
+}
+.navbar-header{
+    width: 100%;
+    border-bottom: 1px solid #003D95;
+    background: #eee;
+    padding: 0 15px;
+}
+.navbar-brand{
+    padding: 0;
+}
+.tab-content{
+    padding-top: 20px;
+}
+.logo{
+    display: block;
+    width: 140px;
+    height: 50px;
+    background: url("../img/imgs1.png") no-repeat 0 -85px;
+}
+.min-logo{
+    display: block;
+    width: 60px;
+    height: 50px;
+    background: url("../img/imgs1.png") no-repeat -170px -85px;
+    margin-right: 13px;
+}
+
+/*汉堡包按钮*/
+#showLeftPush{
+    margin-top: 12px;
+    padding: 6px 7px;
+   float: left;
+}
+.navbar-toggle .icon-bar{
+    width: 15px;
+}
+/*pc 汉堡包按钮*/
+.pc-button{
+    margin-left: 25px;
+    margin-top: 20px;
+    height: 17px;
+    width: 17px;
+    border:none;
+    background: linear-gradient(#888 20%, transparent 18%, transparent 40%, #888 38%, #888 60%, transparent 60%, transparent 82%, #888 78%);
+}
+
+/*用户中心图标*/
+.btn-gly{
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+#btn-user{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+#btn-language{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+    background-color: transparent;
+}
+/*图标下拉菜单弹出方向*/
+.dropdown-menu{
+    left: -100px;
+}
+/*导航条padding************)))))))))))))))***/
+.right-nav{
+    position: fixed;
+    padding-left: 15px;
+    width: 200px;
+    padding-top:20px ;
+    min-height: 1000px;
+    background:-webkit-gradient(linear, 70% 0%, 100% 0%,from(#fff), to(#eee));
+    background: -ms-linear-gradient(left, #fff 70%,  #eee 100%);    /* IE 10 */
+    background:-moz-linear-gradient(left,#fff 70%,  #eee 100%);     /*火狐*/
+    background: -webkit-linear-gradient(left, #fff 70%, #eee 100%);   /*Safari5. Chrome 10+*/
+    background: -o-linear-gradient(left, #fff 70%, #eee 100%);  /*Opera 11.10+*/
+    z-index: 500;
+}
+
+/*导航条默认样式*/
+.nav>li>a{
+    color: #888;
+}
+.nav>li>a:hover{
+    color: #014099;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
+    color: #014099;
+    background-color: transparent;
+}
+/**/
+.nav>li>a:hover, .nav>li>a:focus{
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/*侧边栏菜单*/
+.cbp-spmenu-left.cbp-spmenu-open{
+    top: 50px;
+}
+#cbp-spmenu-s1{
+    background:-webkit-gradient(linear, 70% 0%, 100% 0%,from(#fff), to(#eee));
+}
+/*侧边栏下的 ul*/
+.list-none{
+    list-style: none;
+    padding-left: 0;
+    padding-top: 20px;
+}
+#mytab a{
+    width: 100%;
+    display: inline-block;
+}
+/*侧边栏li:hover*/
+#mytab li:hover,#mytab li.active{
+    border-right: 3px solid #003D95;
+}
+/*侧边栏菜单 数据分析 点击*/
+.nav-a>li.record{
+    display: none;
+}
+.record{
+    padding-left: 50px;
+}
+.record a{
+    font-size: 13px;
+}
+/*页面主题内容*****************************************************/
+#main{
+    position: relative;
+    overflow: hidden;
+}
+.main-content{
+    width: 100%;
+    min-height:600px;
+}
+
+/*小于767生效*/
+@media (max-width: 767px) {
+    .pc-button, .navbar-brand>img, .right-nav{
+        display: none;
+    }
+    .main-content{
+        padding: 0;
+    }
+    .logo{
+        display: none;
+    }
+}
+/*大于767生效*/
+@media (min-width: 767px){
+    #cbp-spmenu-s1{
+        display: none;
+    }
+    .main-content{
+        padding-left: 200px;
+    }
+}
+
+.panel-success>.panel-heading{
+    background-color: #003D95;
+    color: #fff;
+}
+.panel-success {
+    border: none;
+}
+
+/*百度地图*/
+.iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+.iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+#dituContent label{
+    max-width: none;
+}
+
+/*侧边栏css样式*/
+.cbp-spmenu {
+    position: fixed;
+}
+.cbp-spmenu a {
+    display: block;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 300;
+}
+.cbp-spmenu a:hover {
+    background: #428BCA;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 7px;
+}
+.cbp-spmenu a:active {
+    background: #afdefa;
+    color: #47a3da;
+}
+.cbp-spmenu-vertical {
+    width: 200px;
+    height: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.cbp-spmenu-vertical a {
+    padding: 1em;
+    color: #6B99D8;
+    padding-left: 40px;
+    font-size: 14px;
+}
+.cbp-spmenu-vertical .record a{
+    padding-left: 20px;
+}
+.cbp-spmenu-left {
+    left: -240px;
+}
+.cbp-spmenu-left.cbp-spmenu-open {
+    left: 0;
+}
+.cbp-spmenu-open {
+    right: 0;
+}
+.cbp-spmenu-open {
+    top: 0;
+}
+.cbp-spmenu-open {
+    bottom: 0;
+}
+.cbp-spmenu-push-toright {
+    left: 240px;
+}
+.cbp-spmenu-push-toleft {
+    left: -240px;
+}
+.cbp-spmenu {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+@media screen and (max-height: 26.375em){
+    .cbp-spmenu-vertical {
+        font-size: 90%;
+        width: 190px;
+    }
+    .cbp-spmenu-left {
+        left: -190px;
+    }
+    .cbp-spmenu-push-toright {
+        left: 190px;
+    }
+}
+
+.BMap_bubble_content{
+    position: relative;
+}
+.img-png{
+    position: absolute;
+    display: block;
+    width: 70px;
+    height: 70px;
+    left: 115px;
+    top: 0;
+}
+.img2{
+    background:url("../img/imgs1.png") no-repeat  0 0;
+}
+.img3{
+    background:url("../img/imgs1.png") no-repeat  -70px 0;
+}
+.img4{
+    background:url("../img/imgs1.png") no-repeat  -140px 0;
+}
+.img5{
+    background:url("../img/imgs1.png") no-repeat  -210px 0;
+}
+.img6{
+    background:url("../img/imgs1.png") no-repeat  -280px 0;
+}
+
+.span_gly{
+    padding-right: 20px;
+}
+.tab-content{
+    overflow: hidden;
+}
+.footer_text{
+    text-align: center;
+}
+.footer_img{
+    display: inline-block;
+    width: 50px;
+    height: 45px;
+    background: url("../img/imgs1.png") no-repeat -175px -87px;
+}

@@ -1,0 +1,90 @@
+body {
+    font-family: "SimHei", "SimSun", Arial, sans-serif;
+    padding-top: 50px;
+}
+.right-nav{
+    margin: 0;
+}
+.navbar-brand{
+    padding: 0;
+}
+.navbar-brand img{
+    width: 140px;
+    height: 45px;
+}
+
+/*模态框*/
+.modal-body{
+    padding: 0;
+    overflow: hidden;
+}
+/*集水池*/
+.panel-body{
+    overflow: hidden;
+}
+._dispose{
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 7%;
+   border-bottom: 1px solid #ddd;
+}
+.padding-none{
+    padding:0;
+}
+/*地图*/
+.map-img{
+    margin-top: 20px;
+}
+/*系统位置 heading*/
+.panel-success>.panel-heading {
+    color: #fff;
+    background-color:#003D95;
+}
+
+/*渐变*/
+.bgColor{
+    background:-webkit-gradient(linear, 0% 0%, 0% 7%,from(#ededed), to(#fff));
+
+    background: -ms-linear-gradient(top, #eee 0%,  #fff 7%);    /* IE 10 */
+    background:-moz-linear-gradient(top, #eee 0%,  #fff 7%);     /*火狐*/
+    background: -webkit-linear-gradient(top, #eee 0%, #fff 7%);   /*Safari5. Chrome 10+*/
+    background: -o-linear-gradient(top, #eee 0%, #fff 7%);  /*Opera 11.10+*/
+}
+.panel-body-bgColor{
+    padding: 25px 10px 0 10px;
+}
+.panel-success{
+    border-color: #f5f5f5;
+}
+.dispose-bgColor{
+    padding-bottom: 2%;
+}
+.bgColor-bottom{
+    background:-webkit-gradient(linear, 0% 100%, 0% 89%,from(#ededed), to(#fff));
+
+    background: -ms-linear-gradient(top, #fff 80%,  #eee 100%);    /* IE 10 */
+    background:-moz-linear-gradient(top, #fff 80%,  #eee 100%);     /*火狐*/
+    background: -webkit-linear-gradient(top, #fff 80%, #eee 100%);   /*Safari5. Chrome 10+*/
+    background: -o-linear-gradient(top, #fff 80%, #eee 100%);  /*Opera 11.10+*/
+
+}
+
+/*地图*/
+.chian-map{
+    width:100%;
+    height:376px;
+}
+
+/*圆形图表*/
+.circle-chart{
+    width: 190px;
+    height: 160px;
+    float: left;
+}
+
+/*模态框图表*/
+.modal-chart{
+    width: 500px;
+    min-height: 300px;
+}
+

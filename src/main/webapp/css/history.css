@@ -1,0 +1,654 @@
+/*history   CSS------------------------------------------*/
+.form-div{
+    width: 180px;
+    float: left;
+    margin-right: 20px;
+}
+.row{
+    margin: 0;
+    padding:0 20px;
+}
+.history-header{
+    position: relative;
+    margin-top: 20px;
+    padding-left: 10px;
+}
+.dropdown-site-ul,.dropdown-site-ul li,.dropdown-monitor-ul,.dropdown-monitor-ul li,.dropdown-demo-ul ,.dropdown-demo-ul li{
+    list-style: none;
+    padding: 0;
+    margin:0;
+}
+.dropdown{
+    width: 150px;
+    position: relative;
+    display: inline-block;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+.btn-time{
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+.input_select{
+    width: 150px;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #a9c9e2;
+    color: #807a62;
+    border-radius: 5px;
+    display: block;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.dropdown-site-ul,.dropdown-monitor-ul,.dropdown-demo-ul{
+    width:150px;
+    background:#e8f5fe;
+    margin-top:2px;
+    border:1px solid #a9c9e2;
+    position:absolute;
+    display:none;
+    z-index: 10000;
+}
+.dropdown-site-ul li,.dropdown-monitor-ul li,.dropdown-demo-ul li{
+    height:24px;
+    line-height:24px;
+    text-indent:10px;
+}
+.dropdown-site-ul li a,.dropdown-monitor-ul a,.dropdown-demo-ul a{
+    display:block;
+    height:24px;
+    color:#807a62;
+    text-decoration:none
+}
+.dropdown-site-ul li a:hover,.dropdown-monitor-ul li a:hover,.dropdown-demo-ul li a:hover{
+    background:#c6dbfc;
+    color:#369;
+}
+/*存放图表*/
+.history-content{
+    position: relative;
+}
+
+/*realTime    CSS-****------------------------------------*/
+.realTime-header{
+    padding: 20px 0 10px 40px;
+}
+
+/*btn 操作*/
+.warning-color{
+    background-color: #e4393c;
+    color: #ffffff;
+}
+/*.btn:hover, .btn:focus{*/
+    /*color: #ffffff;*/
+/*}*/
+.panel-body-btn{
+    padding-left: 0;
+}
+.panel-body-btn>button{
+    outline: none;
+}
+/*分析数据  */
+.analyze-body{
+    padding-top: 40px;
+}
+/*图表css*/
+#history-charts,#analyze-charts{
+    height: 400px;
+}
+#analyze-use{
+    height: 300px;
+}
+
+/*加载更多*/
+.btn-right{
+    float: right;
+    margin-right: 20px;
+}
+.record-padding-left{
+    padding-left: 10px;
+}
+
+/*去除页面边框*/
+.panel-success {
+ border: none;
+}
+/*实时中 btn padding*/
+.btn-padding{
+    margin-bottom: 10px;
+}
+/*页签颜色*/
+.panel-success>.panel-heading{
+    background-color: #003D95;
+    color: #fff;
+}
+
+/*运行示意图**********************************************/
+.container-div{
+    position: relative;
+    padding: 0;
+}
+.d-header{
+    position: absolute;
+    top: 10%;
+    left: 45%;
+    z-index: 0;
+    box-sizing: border-box;
+    width: 22%;
+    height: 57%;
+    background: #6EFAF3;
+    border: 1px solid #333333;
+}
+/*/!*清空水位 height:57%  满水位height:0%*!/*/
+.hidden-BG{
+    z-index: 1;
+    height: 15%;
+    background: #fff;
+    border-bottom: none;
+}
+.d-footer{
+    position: absolute;
+    top: 67%;
+    left: 1%;
+    z-index: 0;
+    box-sizing: border-box;
+    width: 98%;
+    height: 32%;
+    background: #6EFAF3;
+    border: 1px solid #333333;
+    border-bottom: 2px solid #333333;
+}
+/*/!*控制液位显示 height:31%为空  0%为满状态*!/*/
+.footer-hidden {
+    height: 25%;
+    background: #fff;
+    border-bottom: none;
+}
+
+.conduit {
+    position: absolute;
+    z-index: 1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #6EFAF3;
+    border: 1px solid #333333;
+}
+.c1{
+    width: 2%;
+    height: 20%;
+    top: 61%;
+    left: 14%;
+}
+.c2{
+    top: 61%;
+    left: 15%;
+    width: 27%;
+    height: 3%;
+    border-left: none;
+}
+.c3{
+    top: 4%;
+    left: 40%;
+    width: 2%;
+    height: 58%;
+    border-bottom: none;
+}
+.c4{
+    top: 4%;
+    left: 41%;
+    width: 10%;
+    height: 3%;
+    border-left:none;
+}
+.c5{
+    top: 6%;
+    left: 49%;
+    width: 2%;
+    height: 4%;
+    border-top: none;
+    border-bottom: none;
+}
+/*水循环 泵 和 阀门 img定位*/
+.img1_circulation_position{
+    position: absolute;
+    top: 78%;
+    left: 12%;
+    z-index: 5;
+    width: 7%;
+    height: 16%;
+}
+.img2_circulation_position{
+    position: absolute;
+    top: 67%;
+    left: 52%;
+    z-index: 5;
+    width: 6%;
+    height: 13%;
+}
+/*泵 阀门 开关灯定位*/
+.d_lamp{
+    position: absolute;
+    width: 2%;
+    height: 3%;
+    z-index: 5;
+    border: 1px solid #000;
+    border-radius:50%;
+}
+.d_pump{
+    top: 77%;
+    left: 11%;
+    background: #ddd;
+}
+.d_valve{
+    top: 68%;
+    left: 50%;
+    background: #00f600;
+}
+/*水循环 参数*/
+.s_flow{
+    position: absolute;
+    top: 35%;
+    left: 23%;
+}
+.s_T{
+    position: absolute;
+    top: 2%;
+    left: 78%;
+}
+.s_m1{
+    position: absolute;
+    top: 33%;
+    left: 73%;
+}
+.s_m2{
+    position: absolute;
+    top: 36%;
+    left: 82%;
+    font-size: 12px;
+}
+.d1{
+    position: absolute;
+    left: 19%;
+    top: 42%;
+}
+.s1{
+    color: #e4393c;
+    margin-right: 3px;
+}
+.d2{
+    position: absolute;
+    top: 2%;
+    left: 63%;
+}
+.d3{
+    position: absolute;
+    top: 40%;
+    left: 69%;
+}
+.d4{
+    position: absolute;
+    top: 46%;
+    left: 84%;
+}
+.unit{
+    font-size: 12px;
+}
+/*实时 运行示意图   -------------------------*/
+/*污水示意图*/
+.span{
+    font-size: 13px;
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #e4393c;
+}
+.s1-mg{
+    top: 5%;
+    left: 19%;
+}
+.s1-m{
+    top: 11%;
+    left: 36%;
+}
+.s2-mg{
+    top: 29%;
+    left: 19%;
+}
+.s2-m{
+    top: 35%;
+    left: 36%;
+}
+.s3-mg{
+    top: 54%;
+    left: 19%;
+}
+.s3-m{
+    top: 60%;
+    left:36%;
+}
+.s4-mg{
+    top: 78%;
+    left: 19%;
+}
+.s4-m{
+    top: 84%;
+    left: 36%;
+}
+.s5-mg{
+    top: 48%;
+    left: 79%;
+}
+.s5-m{
+    top: 58%;
+    left: 79%;
+}
+/*污水液位动态显示*/
+.div_mg{
+    position: absolute;
+    width: 16%;
+    background: #fff;
+}
+.mg_1{
+    left: 17%;
+    top: 10%;
+    height: 4%;
+}
+.mg_2{
+    left: 17%;
+    top: 34%;
+    height: 6%;
+}
+.mg_3{
+    left: 17%;
+    top: 59%;
+    height: 6%;
+}
+.mg_4{
+    left: 17%;
+    top: 83%;
+    height: 6%;
+}
+.mg_ph{
+    position: absolute;
+    left: 60%;
+    top: 47%;
+    height: 4%;
+    width: 16%;
+    background: #ffffff;
+}
+
+/*供暖*-----------------------*************----------*/
+.h-kPa-1{
+    top: 9%;
+    left: 41%;
+}
+.h-C1{
+    top: 9%;
+    left: 70%;
+}
+.h-kPa-2{
+    top: 31%;
+    left: 41%;
+}
+.h-C2{
+    top: 31%;
+    left: 70%;
+}
+.h-m1{
+    top: 61%;
+    left: 75%;
+}
+
+.cistern{
+    position: absolute;
+    top: 65%;
+    left: 61%;
+}
+/*水箱 定位    -------------------   ------*/
+.d1-bg{
+    width: 11%;
+    height: 25%;
+    background: #6EFAF3;
+    z-index: 0;
+    border: 1px solid #000;
+}
+.d1-fff{
+    width: 11%;
+    height: 7%;
+    background: #fff;
+    z-index: 1;
+    border: 1px solid #000;
+    border-bottom: none;
+}
+
+/*油田超高*/
+.padding-none{
+    padding: 0;
+}
+/*压缩机 ---------------------------------------*/
+.circle-chart{
+    width: 165px;
+    height: 131px;
+    float: left;
+}
+
+/*取消button的默认点击边框*/
+#btn_1,#btn_2{
+    outline: none;
+}
+
+/*系统介绍图*/
+.system-img{
+    padding-top: 20px;
+}
+.compressor-position{
+    margin-bottom: 7px;
+}
+
+/*大于767生效*/
+@media (min-width: 767px){
+    #history-charts{
+        height: 400px;
+    }
+    #analyze-charts{
+        height: 400px;
+    }
+    #analyze-use{
+        height: 300px;
+    }
+}
+/*小于767*/
+@media (max-width: 767px){
+    .span{
+        font-size:12px;
+        -webkit-transform-origin-x: 0;
+        -webkit-transform: scale(0.80);
+    }
+    #history-charts{
+        height: 300px;
+    }
+    #analyze-charts{
+        height: 300px;
+    }
+    #analyze-use{
+        height: 300px;
+    }
+    .s_flow,.s_T,.s_m1,.s_m2{
+        font-size:12px;
+        -webkit-transform-origin-x: 0;
+        -webkit-transform: scale(0.80);
+    }
+    .cir_div{
+        min-height: 132.5px;
+    }
+}
+/*大于1201*/
+@media screen and (min-width: 1201px){
+    .span{
+        font-size: 14px;
+    }
+}
+/*小于1200*/
+@media screen and (max-width: 1200px) {
+    .span{
+        font-size: 13px;
+    }
+    .table_margin .text_left td{
+        text-align: left;
+        font-size:12px;
+    }
+}
+
+/*设备信息 文本框输入*/
+.text_border{
+    border: none;
+}
+/*供暖 数据表*/
+.demo_btn{
+    font-size: 13px;
+    padding: 0;
+    padding: 4px 10px;
+    float: right;
+    color: #000;
+    background-color: #dddddd;
+    outline: none;
+}
+.demo_btn:hover{
+    color: #003D95;
+    background-color: #f1f1f1;
+}
+.demo_btn:focus{
+    color: #000;
+}
+.table_margin{
+    margin-bottom: 0;
+}
+.table_margin td{
+    text-align: center;
+}
+.table .tr_text td{
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.tr_text>td>div{
+    font-weight: bold;
+    font-family: fontNameDis;
+    display: inline-block;
+    border: 1px solid #eeeeee;
+    border-radius: 5%;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    -moz-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+    padding: 1% 10%;
+}
+.table>tbody>tr>td{
+    padding: 1%;
+    font-size: 13px;
+}
+@font-face {
+    font-family: 'fontNameDis';
+    src:url('../bootstrap/fonts/LiquidCrystal-Normal.otf');
+    src:url('../bootstrap/fonts/liquidcr.ttf');
+
+    local('fontName'),
+    url('fontName.otf') format('opentype'),
+    url('fontName.ttf') format('truetype');
+}
+
+/*运行示意图  btn  *************************************************/
+/*油田 压缩机*/
+.petroleum_btn,.compressor_btn{
+    visibility: hidden;
+}
+.tr_text td div{
+    color: #449d44;
+    font-size: 20px;
+}
+@media screen and (max-width: 1130px){
+    .tr_text td div{
+        font-size: 14px;
+    }
+}
+/*table中td width 50%*/
+.circulation_table td,.sewage_table .table_w_50 td{
+    width: 50%;
+}
+.heating_table td{
+    width: 33.3%;
+}
+.heating_table .table_w_25 td,.sewage_table td{
+    width: 25%;
+}
+
+.table_record>thead>tr>th{
+    padding:1%;
+}
+
+/*水循环样式*/
+.cir_div{
+    font: 12px 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
+    text-shadow: 0 1px rgba(255,255,255,.8);
+    background: #fff;
+    border: 1px solid #fff;
+    color: #333;
+    padding:2% 20px;
+    width: 25%;
+    float: left;
+    position: relative;
+    transition:transform 0.2s linear;
+    margin-bottom: 10px;
+}
+.cir_div:hover{
+    transform:translatey(-5px);
+    box-shadow:0 0 8px 5px #ddd;
+    z-index: 1;
+}
+.span_text_1{
+    font-size: 12px;
+}
+.cir_h5{
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    padding: 3% 2%;
+    margin: -10px -20px 50px -20px;
+    background-color: #ddd;
+    background-image: -moz-linear-gradient(#fff,#ddd);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+    background-image: -webkit-linear-gradient(#fff, #ddd);
+    background-image: -o-linear-gradient(#fff, #ddd);
+    background-image: -ms-linear-gradient(#fff, #ddd);
+    background-image: linear-gradient(#fff, #ddd);
+}
+.cir_span_1{
+    display: block;
+    text-align: center;
+    font: bold 25px/70px Georgia, Serif;
+    color: #449D44;
+    background: #fff;
+    border: 5px solid #fff;
+    height: 80px;
+    width: 80px;
+    margin: 10px auto -60px;
+    -moz-border-radius: 80px;
+    -webkit-border-radius: 80px;
+    border-radius: 80px;
+    -moz-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+    -webkit-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+    box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+}
+
+/*历史数据容器*/
+.history_container{
+    overflow: hidden;
+    margin:0 20px;
+}
+
+
+
+
+
+
+
