@@ -44,11 +44,10 @@ public class SystemWebSocketHandler implements WebSocketHandler {
     public void sendMessageToUser(String userName, TextMessage message) {
         for (WebSocketSession user : users) {
             String username=(String) user.getHandshakeAttributes().get("WEBSOCKET_USERNAME");
-            System.out.println(username);
             if (username!=null&&username.equals(userName)) {
                 try {
                     if (user.isOpen()) {
-                        System.out.println("websocketSend:"+message.toString());
+                        System.out.println("WebSocket发送:"+message.toString()+"给用户"+username);
                         user.sendMessage(message);
                     }
                 } catch (IOException e) {

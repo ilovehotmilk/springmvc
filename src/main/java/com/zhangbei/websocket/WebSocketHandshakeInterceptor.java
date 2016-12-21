@@ -23,7 +23,7 @@ public class WebSocketHandshakeInterceptor implements HandshakeInterceptor {
             String topic = servletRequest.getServletRequest().getParameter("topic");
             HttpSession session = servletRequest.getServletRequest().getSession(false);
         if(session!=null&&session.getAttribute("username").equals(username)) {
-            System.out.println("username:"+username);
+            System.out.println("与用户"+username+"建立WebSocket连接");
             attributes.put("WEBSOCKET_USERNAME", username);
             attributes.put("WEBSOCKET_TOPIC", topic);
         }

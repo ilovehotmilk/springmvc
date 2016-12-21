@@ -53,6 +53,7 @@ public class AjaxController {
         Map<String, Object> result = new HashMap<String, Object>();
         session.invalidate();
         result.put("success",true);
+        System.out.println("用户退出");
         return result;
     }
 }

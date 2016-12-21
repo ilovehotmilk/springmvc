@@ -10,17 +10,20 @@ public class ViewsController {
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login() {
+        System.out.println("访问login");
         return "login";
     }
 
 
     @RequestMapping("/analog")
     public String Analog() {
+        System.out.println("访问analog");
         return "analog";
     }
 
     @RequestMapping("/test")
     public String Test() {
+        System.out.println("访问test");
         return "test";
     }
 }
